@@ -11,8 +11,12 @@ export default function Home() {
         <div className="container mx-auto pt-8 space-y-4">
           <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center">
             <div>
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-medium">matheus</h1>
-              <p className="text-base sm:text-lg md:text-xl">software developer</p>
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-medium">
+                matheus
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl">
+                software developer
+              </p>
             </div>
             <SpotifyWidget />
             <div className="flex flex-row space-x-3 mt-4 sm:mt-0">
@@ -33,9 +37,10 @@ export default function Home() {
         <Image
           src="/static/wpp.jpg"
           alt="Image"
-          width={384}
-          height={682}
-          className="rounded-lg w-full max-w-[384px] h-auto object-cover mb-6 lg:mb-0 lg:w-[384px] order-2"
+          width={720}
+          height={900}
+          quality={100}
+          className="rounded-lg w-full max-w-[450px] h-auto object-cover lg:mb-0 lg:w-[450px] order-2"
         />
         <div className="w-full max-w-md space-y-5 text-center lg:text-left">
           <p className="text-md sm:text-lg md:text-xl font-bold">
@@ -44,11 +49,11 @@ export default function Home() {
           <div className="text-sm sm:text-base md:text-lg space-y-4">
             <div>
               <p className="font-semibold">languages =&gt;</p>
-              <p className="ml-4">{"{ :typescript, :python, :c }"}</p>
+              <p className="ml-4">{"{ :typescript, :python, :go }"}</p>
             </div>
             <div>
               <p className="font-semibold">frameworks =&gt;</p>
-              <p className="ml-4">{"{ :next.js, :fastify, :spring-boot }"}</p>
+              <p className="ml-4">{"{ :next.js, :fastify, :fast-api }"}</p>
             </div>
             <div>
               <p className="font-semibold">tools =&gt;</p>
@@ -68,7 +73,7 @@ export default function Home() {
                   target="_blank"
                   className="text-sky-600 hover:text-sky-950"
                 >
-                  lox interpreter
+                  lox interpreter in go
                 </Link>
               </li>
               <li>
@@ -77,7 +82,7 @@ export default function Home() {
                   target="_blank"
                   className="text-sky-600 hover:text-sky-950"
                 >
-                  curiously, curious cat clone
+                  curiously, curious cat clone in next.js
                 </Link>
               </li>
               <li>
@@ -95,16 +100,16 @@ export default function Home() {
                   target="_blank"
                   className="text-sky-600 hover:text-sky-950"
                 >
-                  manga app
+                  manga reader in next.js
                 </Link>
               </li>
               <li>
                 <Link
-                  href="https://github.com/matheus-hrm/steg"
+                  href="https://github.com/matheus-hrm/Logic-Proofs"
                   target="_blank"
                   className="text-sky-600 hover:text-sky-950"
                 >
-                  steganography in C
+                  logic proofs checker in haskell
                 </Link>
               </li>
             </ul>
