@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'posts/*.md'
+      - 'posts/**/*.md'
       - '.github/workflows/generate-post-routes.yml'
   workflow_dispatch:
 
@@ -57,13 +58,14 @@ jobs:
         run: |
           set -euo pipefail
 
-          if git diff --quiet; then
+          git add posts/*/index.html
+
+          if git diff --cached --quiet; then
             echo "No route files changed."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add posts/*/index.html
           git commit -m "chore: generate post route index files"
           git push
