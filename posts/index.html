@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github.min.css">
+</head>
+<body>
+    <button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="moon-icon" aria-hidden="true"></span>
+    </button>
+    <div id="theme-transition" aria-hidden="true"></div>
+    <section id="post-content" class="line markdown" aria-label="Post content"></section>
+    <main id="terminal" aria-label="Terminal" role="application">
+        <div id="history"></div>
+        <div class="line" id="current-line">
+            <span class="prompt">λ </span><span id="cwd"></span><span id="input-view"></span><span id="cursor" aria-hidden="true"></span>
+        </div>
+        <div class="line status-line" id="status-line" aria-live="polite"></div>
+    </main>
+    <input id="keycapture" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-hidden="true">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js" defer></script>
+    <script src="../markdown.js" defer></script>
+    <script src="../terminal.js" defer></script>
+</body>
+</html>

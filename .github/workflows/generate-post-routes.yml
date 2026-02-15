@@ -1,0 +1,69 @@
+name: Generate post route index files
+
+on:
+  push:
+    paths:
+      - 'posts/*.md'
+      - '.github/workflows/generate-post-routes.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-route-pages:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate route index files for markdown posts
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          shopt -s nullglob
+          for md_path in posts/*.md; do
+            md_file="$(basename "$md_path")"
+            slug="${md_file%.md}"
+            route_dir="posts/$slug"
+            route_file="$route_dir/index.html"
+
+            mkdir -p "$route_dir"
+
+            cat > "$route_file" <<HTML
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Redirecting…</title>
+              <meta http-equiv="refresh" content="0;url=../index.html#${md_file}">
+          </head>
+          <body>
+              <script>
+                  window.location.replace("../index.html#${md_file}");
+              </script>
+          </body>
+          </html>
+          HTML
+          done
+
+      - name: Commit and push changes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if git diff --quiet; then
+            echo "No route files changed."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add posts/*/index.html
+          git commit -m "chore: generate post route index files"
+          git push
