@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <link rel="stylesheet" href="../../../../style.css">
+</head>
+<body>
+    <section id="post-content" class="line markdown" aria-label="Post content"></section>
+    <main id="terminal" aria-label="Terminal" role="application">
+        <div id="history"></div>
+        <div class="line" id="current-line">
+            <span class="prompt">λ </span><span id="cwd"></span><span id="input-view"></span><span id="cursor" aria-hidden="true"></span>
+        </div>
+        <div class="line status-line" id="status-line" aria-live="polite"></div>
+    </main>
+    <input id="keycapture" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-hidden="true">
+
+    <script src="../../../../markdown.js" defer></script>
+    <script src="../../../../terminal.js" defer></script>
+</body>
+</html>
